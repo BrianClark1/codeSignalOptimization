@@ -6,7 +6,7 @@ field = [
   [true, false, false, false, false],
 ];
 
-function Matrix(m, n, d) {
+function matrixGenerator(m, n, d) {
   let output = [];
 
   //rows
@@ -29,8 +29,8 @@ class Solution {
     this.cols = this.matrix[0].length;
 
     //initalize return matrix with -1 (converted from python)
-    this.return_matrix = Matrix(this.rows, this.cols, -1);
-    this.visited = Matrix(this.rows, this.cols, false);
+    this.return_matrix = matrixGenerator(this.rows, this.cols, -1);
+    this.visited = matrixGenerator(this.rows, this.cols, false);
   }
 
   get_adjacent_squares(x, y) {
