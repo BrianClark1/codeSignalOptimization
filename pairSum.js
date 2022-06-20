@@ -1,6 +1,7 @@
 
 //Naive Approach 
 //O(n2) Time 
+//O(1) Space
 
 function solution(a, k) {
     let solutionCounter = 0;
@@ -15,8 +16,9 @@ function solution(a, k) {
     return solutionCounter
 }
 
-
 // Efficient approach  Utilizing a  hashmap
+//O(n) Time
+//O(k) Space
 function solution(a, k) {
 
   let moduloArr = new Array(k);
