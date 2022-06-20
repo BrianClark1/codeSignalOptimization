@@ -1,4 +1,3 @@
-
 let field, result, test;
 field = [
   [true, false, true, true, false],
@@ -7,7 +6,19 @@ field = [
   [true, false, false, false, false],
 ];
 
+function Matrix(m, n, d) {
+  let output = [];
 
+  //rows
+  for (let i = 0; i < m; i++) {
+    output.push([]);
+    //columns
+    for (let j = 0; j < n; j++) {
+      output[i].push(d);
+    }
+  }
+  return output;
+}
 
 class Solution {
   constructor(matrix, click) {
@@ -15,72 +26,11 @@ class Solution {
     this.x = click[0];
     this.y = click[1];
     this.rows = this.matrix.length;
-      this.cols = this.matrix[0].length;
-      let range = n => Array.from(Array(n).keys())
+    this.cols = this.matrix[0].length;
 
-        //let idx = 0;
-      //initalize return matrix with -1 (converted from python)
-
-    this.return_matrix = function () {
-      let returnMatrixRows = [],
-            returnMatrixCols = range(this.rows);
-      
-
-      for (let idx = 0, lengthTemp = returnMatrixCols.length; idx < lengthTemp; idx += 1) {
-        let i = returnMatrixCols[idx];
-
-        returnMatrixRows.push(
-          function () {
-            let _pj_e = [],
-              _pj_f = range(this.cols);
-
-            for (
-              let _pj_g = 0, _pj_h = _pj_f.length;
-              _pj_g < _pj_h;
-              _pj_g += 1
-            ) {
-              let i = _pj_f[_pj_g];
-
-              _pj_e.push(-1);
-            }
-
-            return _pj_e;
-          }.call(this)
-        );
-      }
-
-      return returnMatrixRows;
-      }.call(this);
-      
-    this.visited = function () {
-      let returnMatrixRows = [],
-        returnMatrixCols = range(this.rows);
-
-      for (let idx = 0, lengthTemp = returnMatrixCols.length; idx < lengthTemp; idx += 1) {
-        let i = returnMatrixCols[idx];
-
-        returnMatrixRows.push(
-          function () {
-            let _pj_e = [],
-              _pj_f = range(this.cols);
-
-            for (
-              let _pj_g = 0, _pj_h = _pj_f.length;
-              _pj_g < _pj_h;
-              _pj_g += 1
-            ) {
-              let i = _pj_f[_pj_g];
-
-              _pj_e.push(false);
-            }
-
-            return _pj_e;
-          }.call(this)
-        );
-      }
-
-      return returnMatrixRows;
-    }.call(this);
+    //initalize return matrix with -1 (converted from python)
+    this.return_matrix = Matrix(this.rows, this.cols, -1);
+    this.visited = Matrix(this.rows, this.cols, false);
   }
 
   get_adjacent_squares(x, y) {
@@ -140,7 +90,10 @@ class Solution {
       adj = this.get_adjacent_squares(x, y);
 
       for (
-        let square, idx = 0, returnMatrixRows = adj, returnMatrixCols = returnMatrixRows.length;
+        let square,
+          idx = 0,
+          returnMatrixRows = adj,
+          returnMatrixCols = returnMatrixRows.length;
         idx < returnMatrixCols;
         idx += 1
       ) {
@@ -164,10 +117,6 @@ class Solution {
   }
 }
 
-test = new Solution(field, [3,2]);
+test = new Solution(field, [3, 2]);
 result = test.play(3, 2);
 console.log(result);
-
-
-
-
