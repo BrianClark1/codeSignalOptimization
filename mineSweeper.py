@@ -6,7 +6,7 @@ field = [
 ]
 
 class Solution:
-    # Constructoor, initializes input matrix, deconstructs click, find size of rows & columns 
+    # Constructor, initializes input matrix, deconstructs click, find size of rows & columns 
     #Creates return matrix, initialized with -1's along with validation matrix filled with False's
     def __init__(self,matrix,click):
         self.matrix = matrix  # [[T F T T F]].... True = bomb, False = nobomb
