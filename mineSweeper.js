@@ -59,12 +59,12 @@ class Solution {
     for (
       let square,
         idx = 0,
-        returnMatrixRows = this.get_adjacent_squares(x, y),
-        returnMatrixCols = returnMatrixRows.length;
-      idx < returnMatrixCols;
+        adjSquares = this.get_adjacent_squares(x, y),
+        numberOfSquares = adjSquares.length;
+      idx < numberOfSquares;
       idx += 1
     ) {
-      square = returnMatrixRows[idx];
+      square = adjSquares[idx];
 
       if (
         this.inBoard(square[0], square[1]) &&
@@ -92,12 +92,12 @@ class Solution {
       for (
         let square,
           idx = 0,
-          returnMatrixRows = adj,
-          returnMatrixCols = returnMatrixRows.length;
-        idx < returnMatrixCols;
+          adjSquares = adj,
+          numberOfSquares = adjSquares.length;
+        idx < numberOfSquares;
         idx += 1
       ) {
-        square = returnMatrixRows[idx];
+        square = adjSquares[idx];
 
         if (
           this.inBoard(square[0], square[1]) &&
